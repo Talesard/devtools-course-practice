@@ -13,7 +13,7 @@ TEST(Napylov_Evgenii_ComplexNumberTest, Complex_number_module) {
     ComplexNumber num_conj(num.getRe(), num.getIm() * -1);
     ComplexNumber mult = num * num_conj;
     ASSERT_EQ(0, mult.getIm());
-    double num_abs = sqrt(mult.getRe());
+    double num_abs = std::sqrt(mult.getRe());
     double correct_abs = 5;
     ASSERT_EQ(correct_abs, num_abs);
 }
