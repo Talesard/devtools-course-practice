@@ -5,7 +5,7 @@
 #include <vector>
 
 
-std::vector<int> get_random_vec(int size, int min, int max) {
+std::vector<int> InterpSearch::get_random_vec(int size, int min, int max) {
     static std::mt19937 gen(time(0));
     std::vector<int> result(size);
     std::uniform_int_distribution<int> distr(min, max);
@@ -50,7 +50,8 @@ int search_algorithm(const std::vector<int>& vec, int key) {
     }
 }
 
-int interpolation_search(std::vector<int> vec, int key, bool unique_keys) {
+int InterpSearch::interpolation_search(std::vector<int> vec, int key,
+                                                  bool unique_keys) {
     if (vec.size() == 0) {
         return -1;
     }
@@ -68,7 +69,7 @@ int interpolation_search(std::vector<int> vec, int key, bool unique_keys) {
     }
 }
 
-int linear_search(std::vector<int> vec, int key) {
+int InterpSearch::linear_search(std::vector<int> vec, int key) {
     int size = vec.size();
     for (int i = 0; i < size; i++) {
         if (vec[i] == key) {

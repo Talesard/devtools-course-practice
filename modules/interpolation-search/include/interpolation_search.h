@@ -4,10 +4,12 @@
 
 #include <vector>
 
-std::vector<int> get_random_vec(int size, int min, int max);
+namespace InterpSearch {
+    std::vector<int> get_random_vec(int size, int min, int max);
 
-int interpolation_search(std::vector<int> vec, int key, bool unique_keys);
+    int interpolation_search(std::vector<int> vec, int key, bool unique_keys);
 
-int linear_search(std::vector<int> vec, int key);
+    int linear_search(std::vector<int> vec, int key);
+}
 
 #endif  // MODULES_INTERPOLATION_SEARCH_INCLUDE_INTERPOLATION_SEARCH_H_
