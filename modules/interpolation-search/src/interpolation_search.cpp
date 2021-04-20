@@ -2,6 +2,7 @@
 #include "include/interpolation_search.h"
 #include <time.h>
 #include <random>
+#include <vector>
 
 
 std::vector<int> get_random_vec(int size, int min, int max) {
