@@ -1,6 +1,7 @@
 // Copyright 2021 Napylov Evgeniy
 #include <gtest/gtest.h>
 #include <algorithm>
+#include <vector>
 #include "include/interpolation_search.h"
 
 
