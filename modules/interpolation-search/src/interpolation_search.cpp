@@ -1,4 +1,5 @@
 // Copyright 2021 Napylov Evgeniy
+
 #include "include/interpolation_search.h"
 #include <time.h>
 #include <random>
@@ -18,30 +19,29 @@ std::vector<int> InterpSearch::get_random_vec(int size, int min, int max) {
 
 int search_algorithm(const std::vector<int>& vec, int key) {
     const int size = vec.size();
-    int lev_gr = 0;
-    int prav_gr = size - 1;
+    int left = 0;
+    int right = size - 1;
 
-    while (vec[lev_gr] < key && vec[prav_gr] > key &&
-                                    vec[lev_gr] != vec[prav_gr]) {
-        int index = (key - vec[lev_gr]) * (lev_gr - prav_gr) /
-                        (vec[lev_gr] - vec[prav_gr]) + lev_gr;
+    while (vec[left] < key && vec[right] > key && vec[left] != vec[right]) {
+        int index = (key - vec[left]) * (left - right) /
+                        (vec[left] - vec[right]) + left;
 
         if (vec[index] > key) {
-            prav_gr = index - 1;
+            right = index - 1;
         } else {
             if (vec[index] < key) {
-                lev_gr = index + 1;
+                left = index + 1;
             } else {
                 return index;
             }
         }
     }
-    std::cout << lev_gr << prav_gr << std::endl;
-    if (vec[lev_gr] == key) {
-        return lev_gr;
+    std::cout << left << right << std::endl;
+    if (vec[left] == key) {
+        return left;
     } else {
-        if (vec[prav_gr] == key) {
-            return prav_gr;
+        if (vec[right] == key) {
+            return right;
         } else {
             return -1;
         }

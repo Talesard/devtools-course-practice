@@ -1,4 +1,5 @@
 // Copyright 2021 Napylov Evgeniy
+
 #include <gtest/gtest.h>
 #include <algorithm>
 #include <vector>
@@ -101,6 +102,16 @@ TEST(InterpolationSearch, exist_right) {
 
     ASSERT_EQ(10, res);
 }
+
+TEST(InterpolationSearch, exist_left) {
+    std::vector<int> vec = { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
+    const int key = -5;
+
+    int res = InterpSearch::interpolation_search(vec, key, true);
+
+    ASSERT_EQ(0, res);
+}
+
 
 TEST(InterpolationSearch, not_exist_inside_not_unique) {
     std::vector<int> vec = { -5, -4, -4, -4, -3, -2, -1, 0,
