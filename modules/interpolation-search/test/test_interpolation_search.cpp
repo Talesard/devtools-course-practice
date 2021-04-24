@@ -20,6 +20,42 @@ TEST(InterpolationSearch, empty_vector) {
     ASSERT_EQ(-1, res);
 }
 
+TEST(InterpolationSearch, exist_one) {
+    std::vector<int> vec = {123};
+    const int key = 123;
+
+    int res = InterpSearch::interpolation_search(vec, key, false);
+
+    ASSERT_EQ(0, res);
+}
+
+TEST(InterpolationSearch, not_exist_one) {
+    std::vector<int> vec = { 123 };
+    const int key = 456;
+
+    int res = InterpSearch::interpolation_search(vec, key, false);
+
+    ASSERT_EQ(-1, res);
+}
+
+TEST(InterpolationSearch, exist_only_the_same_numbers) {
+    std::vector<int> vec = { 123, 123, 123, 123 };
+    const int key = 123;
+
+    int res = InterpSearch::interpolation_search(vec, key, false);
+
+    ASSERT_EQ(0, res);
+}
+
+TEST(InterpolationSearch, not_exist_only_the_same_numbers) {
+    std::vector<int> vec = { 123, 123, 123, 123 };
+    const int key = 456;
+
+    int res = InterpSearch::interpolation_search(vec, key, false);
+
+    ASSERT_EQ(-1, res);
+}
+
 TEST(InterpolationSearch, exist_unique) {
     std::vector<int> vec = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
     const int key = 2;

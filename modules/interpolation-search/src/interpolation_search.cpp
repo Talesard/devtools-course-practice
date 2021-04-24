@@ -62,6 +62,7 @@ int InterpSearch::interpolation_search(std::vector<int> vec, int key,
         return res;
     } else {
         int id = res - 1;
+        if (id < 0) return res;
         while (vec[id] == key) {
             id--;
         }
