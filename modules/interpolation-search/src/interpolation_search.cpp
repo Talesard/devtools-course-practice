@@ -21,11 +21,8 @@ int search_algorithm(const std::vector<int>& vec, int key) {
     int lev_gr = 0;
     int prav_gr = size - 1;
 
-    while (vec[lev_gr] < key && vec[prav_gr] > key) {
-        if (vec[lev_gr] == vec[prav_gr]) {
-            break;
-        }
-
+    while (vec[lev_gr] < key && vec[prav_gr] > key &&
+                                    vec[lev_gr] != vec[prav_gr]) {
         int index = (key - vec[lev_gr]) * (lev_gr - prav_gr) /
                         (vec[lev_gr] - vec[prav_gr]) + lev_gr;
 

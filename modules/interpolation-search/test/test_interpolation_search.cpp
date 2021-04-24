@@ -11,6 +11,15 @@ TEST(InterpolationSearch, get_random_vector) {
     ASSERT_NO_THROW(vec = InterpSearch::get_random_vec(100, -200, 200));
 }
 
+TEST(InterpolationSearch, linear) {
+    std::vector<int> vec = { 1, 2, 2, 2, 2, 2, 3 };
+    const int key = 2;
+
+    int res = InterpSearch::linear_search(vec, key);
+
+    ASSERT_EQ(1, res);
+}
+
 TEST(InterpolationSearch, empty_vector) {
     std::vector<int> vec(0);
     const int key = 123;
@@ -65,6 +74,15 @@ TEST(InterpolationSearch, exist_unique) {
     ASSERT_EQ(7, res);
 }
 
+TEST(InterpolationSearch, exist_not_unique_br) {
+    std::vector<int> vec = { 1, 2, 2, 2, 2, 2, 3 };
+    const int key = 2;
+
+    int res = InterpSearch::interpolation_search(vec, key, false);
+
+    ASSERT_EQ(1, res);
+}
+
 TEST(InterpolationSearch, exist_not_unique) {
     std::vector<int> vec = { -5, -4, -4, -4, -3, -2, -1, 0,
                           1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 5 };
@@ -73,6 +91,15 @@ TEST(InterpolationSearch, exist_not_unique) {
     int res = InterpSearch::interpolation_search(vec, key, false);
 
     ASSERT_EQ(11, res);
+}
+
+TEST(InterpolationSearch, exist_right) {
+    std::vector<int> vec = { -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5 };
+    const int key = 5;
+
+    int res = InterpSearch::interpolation_search(vec, key, true);
+
+    ASSERT_EQ(10, res);
 }
 
 TEST(InterpolationSearch, not_exist_inside_not_unique) {
