@@ -4,8 +4,6 @@
 #include <time.h>
 #include <random>
 #include <vector>
-#include <iostream>
-
 
 std::vector<int> InterpSearch::get_random_vec(int size, int min, int max) {
     static std::mt19937 gen(time(0));
@@ -36,7 +34,6 @@ int search_algorithm(const std::vector<int>& vec, int key) {
             }
         }
     }
-    std::cout << left << right << std::endl;
     if (vec[left] == key) {
         return left;
     } else {
