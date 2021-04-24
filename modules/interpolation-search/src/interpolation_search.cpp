@@ -3,6 +3,7 @@
 #include <time.h>
 #include <random>
 #include <vector>
+#include <iostream>
 
 
 std::vector<int> InterpSearch::get_random_vec(int size, int min, int max) {
@@ -17,33 +18,33 @@ std::vector<int> InterpSearch::get_random_vec(int size, int min, int max) {
 
 int search_algorithm(const std::vector<int>& vec, int key) {
     const int size = vec.size();
-    int left = 0;
-    int right = size - 1;
+    int lev_gr = 0;
+    int prav_gr = size - 1;
 
-    while (vec[left] < key && vec[right] > key) {
-        if (vec[left] == vec[right]) {
+    while (vec[lev_gr] < key && vec[prav_gr] > key) {
+        if (vec[lev_gr] == vec[prav_gr]) {
             break;
         }
 
-        int index = (key - vec[left]) * (left - right) /
-                        (vec[left] - vec[right]) + left;
+        int index = (key - vec[lev_gr]) * (lev_gr - prav_gr) /
+                        (vec[lev_gr] - vec[prav_gr]) + lev_gr;
 
         if (vec[index] > key) {
-            right = index - 1;
+            prav_gr = index - 1;
         } else {
             if (vec[index] < key) {
-                left = index + 1;
+                lev_gr = index + 1;
             } else {
                 return index;
             }
         }
     }
-
-    if (vec[left] == key) {
-        return left;
+    std::cout << lev_gr << prav_gr << std::endl;
+    if (vec[lev_gr] == key) {
+        return lev_gr;
     } else {
-        if (vec[right] == key) {
-            return right;
+        if (vec[prav_gr] == key) {
+            return prav_gr;
         } else {
             return -1;
         }
