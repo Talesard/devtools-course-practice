@@ -153,7 +153,7 @@ TEST(test_queue_app, rm_all) {
     QueueApp app;
 
     int res = stoi(app(argc, argv.data()));
-    int correct = 0;
+    const int correct = 0;
 
     ASSERT_EQ(correct, res);
 }
