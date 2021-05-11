@@ -2,7 +2,11 @@
 
 #include <gtest/gtest.h>
 
+#include <string>
+#include <vector>
+
 #include "include/queue_app.h"
+
 
 TEST(test_queue_app, can_create) {
     ASSERT_NO_THROW(QueueApp());
