@@ -1,10 +1,9 @@
 // Copyright 2021 Evgeniy Napylov
-#include <string>
-
-#include <string>
 
 #include <include/queue.h>
 #include <include/queue_app.h>
+
+#include <string>
 
 QueueApp::QueueApp() : message_("") {}
 
