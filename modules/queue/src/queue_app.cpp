@@ -49,8 +49,8 @@ std::string QueueApp::operator()(int argc, const char** argv) {
         return message_;
     }
 
-    int arg_id = 1;
     try {
+        int arg_id = 1;
         while (arg_id < argc) {
             std::string method = argv[arg_id];
             if (method == "append") {
