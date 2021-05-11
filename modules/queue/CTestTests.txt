@@ -115,3 +115,18 @@ set_tests_properties (${prefix}_rm_get_size PROPERTIES
     PASS_REGULAR_EXPRESSION "2"
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_append_after_rm
+    COMMAND ${APPLICATION} append 123 append 456 rm_first append 789 append 999 get_last
+)
+set_tests_properties (${prefix}_append_after_rm PROPERTIES
+    PASS_REGULAR_EXPRESSION "999"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_all_rm
+    COMMAND ${APPLICATION} append 1 append 2 rm_first rm_first get_size
+)
+set_tests_properties (${prefix}_all_rm PROPERTIES
+    PASS_REGULAR_EXPRESSION "0"
+    LABELS "${MODULE}")
